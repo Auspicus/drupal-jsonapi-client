@@ -135,6 +135,13 @@ export default class Entity {
     return this._versionId
   }
 
+  hasChanges() {
+    return (
+      Object.keys(this._changes.attributes).length > 0
+      || Object.keys(this._changes.relationships).length > 0
+    )
+  }
+
   /**
    * Get field value.
    *

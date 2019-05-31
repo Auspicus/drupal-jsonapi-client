@@ -1,19 +1,22 @@
-# Features
+[![CircleCI](https://circleci.com/gh/Auspicus/drupal-jsonapi-client/tree/master.svg?style=svg)](https://circleci.com/gh/Auspicus/drupal-jsonapi-client/tree/master)
 
-* **ES6/ESNext** - Write _ES6_ code and _Babel_ will transpile it to ES5 for backwards compatibility
-* **Test** - _Mocha_ with _Istanbul_ coverage
-* **Lint** - Preconfigured _ESlint_ with _Airbnb_ config
-* **CI** - _TravisCI_ configuration setup
-* **Minify** - Built code will be minified for performance
+# Drupal JSON:API Client
 
-# Commands
-- `npm run clean` - Remove `lib/` directory
-- `npm test` - Run tests with linting and coverage results.
-- `npm test:only` - Run tests without linting or coverage.
-- `npm test:watch` - You can even re-run tests on file changes!
-- `npm test:prod` - Run tests with minified code.
-- `npm run test:examples` - Test written examples on pure JS for better understanding module usage.
-- `npm run lint` - Run ESlint with airbnb-config
-- `npm run cover` - Get coverage report for your code.
-- `npm run build` - Babel will transpile ES6 => ES5 and minify the code.
-- `npm run prepublish` - Hook for npm. Do all the checks before publishing your module.
+This package makes manipulating Drupal entities and resources easier via the JSON:API module which is now in Drupal core (8.7.x).
+
+## Installation
+```
+npm i --save drupal-jsonapi-client
+```
+
+```
+yarn add drupal-jsonapi-client
+```
+
+## Key features
+- **Lightweight** - HTTP library agnostic, zero dependencies
+- **Cross platform** - works in node.js and the browser
+- **Drupal specific** - abstracts away the nuances of working with Drupal's JSON:API implementation
+- **Object oriented** - leverages ES6 classes to neatly package JSON:API objects
+
+It's still in an early stage and contributions are welcome. The general idea is to maintain a base `Entity` class which can be extended to provide more context specific uses ie. `Article extends Entity`.

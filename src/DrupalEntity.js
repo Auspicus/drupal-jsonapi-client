@@ -248,16 +248,37 @@ export const AuthorizeRequest = (request, authorizationHeaderValue) => {
 }
 
 export const SendCookies = (request, xCsrfToken) => {
-  const copy = request.clone()
-
   if (!xCsrfToken) {
     return request
   }
 
-  copy.headers.set('X-CSRF-Token', xCsrfToken)
-  copy.credentials = 'same-origin'
+  const {
+    url,
+    body,
+    cache,
+    headers,
+    integrity,
+    method,
+    mode,
+    redirect,
+    referrer,
+    referrerPolicy,
+  } = request;
 
-  return copy
+  headers.set('X-CSRF-Token', xCsrfToken)
+
+  return new Request(url, {
+    body,
+    cache,
+    credentials: 'same-origin',
+    headers,
+    integrity,
+    method,
+    mode,
+    redirect,
+    referrer,
+    referrerPolicy,
+  })
 }
 
 export const DrupalEntityFromResponse = (jsonApiSerialization) => {
